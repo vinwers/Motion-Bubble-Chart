@@ -101,6 +101,23 @@ var circles = svg.selectAll(".Age_group")
 	console.log(d)
 })
 
+
+var texts = svg.selectAll(null)
+    .data(datapoints)
+    .enter()
+    .append('text')
+		.attr("text-anchor", "middle")
+		.text((datapoints) => { return datapoints.Age_group ; })
+    // .text(d => d.Gender, d => d.Percent)
+    .attr('color', 'black')
+    .attr('font-size', 15)
+
+
+
+
+
+
+
 d3.select("#gender_males").on("click", function(d){
 	simulation
 	.force("x", forceXSeperate)
@@ -143,6 +160,15 @@ function ticked() {
 	.attr("cy", function(d){
 	return d.y
 	})
+	
+	
+	
+	texts.attr('x', (data) => {
+            return data.x
+        })
+        .attr('y', (data) => {
+            return data.y
+        });
 
 }
 
