@@ -1,3 +1,6 @@
+var rainbow = d3.scaleSequential(d3.interpolateWarm).domain([0,12]);
+
+
 (function () { 
 var width =900,
 height = 500;
@@ -91,7 +94,9 @@ var circles = svg.selectAll(".Age_group")
 .attr("r",function(d){
 	return radiusScale(d.Percent)
 })
-.attr("fill", "lightblue")
+.attr("fill", function(d,i){
+	return rainbow(i);
+})
 .on("click",function(d){
 	console.log(d)
 })
