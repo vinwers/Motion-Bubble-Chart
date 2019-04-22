@@ -2,8 +2,8 @@ var rainbow = d3.scaleSequential(d3.interpolateWarm).domain([0,12]);
 
 
 (function () { 
-var width =900,
-height = 500;
+var width =window.innerWidth,
+height = window.innerHeight;
 var svg = d3.select("#chart")
 .append("svg")
 .attr("height", height)
